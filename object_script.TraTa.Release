@@ -1,0 +1,10 @@
+release/auth_dao.o
+release/authentication_dialog.o
+release/dbfacade.o
+release/dbfacade_int.o
+release/main.o
+release/da_window.o
+release/tt_dao.o
+release/moc_authentication_dialog.o
+release/moc_da_window.o
+release/moc_dbfacade_int.o

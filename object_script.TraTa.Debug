@@ -1,0 +1,10 @@
+debug/auth_dao.o
+debug/authentication_dialog.o
+debug/dbfacade.o
+debug/dbfacade_int.o
+debug/main.o
+debug/da_window.o
+debug/tt_dao.o
+debug/moc_authentication_dialog.o
+debug/moc_da_window.o
+debug/moc_dbfacade_int.o
