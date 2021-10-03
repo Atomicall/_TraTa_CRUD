@@ -75,3 +75,16 @@ void TT_Dao::setSeat_free(const QString &newSeat_free)
 {
     seat_free = newSeat_free;
 }
+
+bool TT_Dao::checkIsReady()
+{
+    if (departue.isEmpty()
+            || arrival.isEmpty()
+            || date_dep.isEmpty()
+            ||time_dep.isEmpty()
+            || travel_time.isEmpty()
+            || seat_amount.isEmpty()
+            || seat_free.isEmpty()) return 0;
+    else return 1;
+
+}

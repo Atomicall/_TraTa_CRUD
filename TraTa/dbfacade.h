@@ -14,10 +14,11 @@ public:
     void initQuery();
     void initTableModelAndView(QTableView* tableview, uint8_t edit_strategy);
     virtual ~DBFacade();
-    virtual void addRecord (T m); // ТУТ ХЗ ПОКА // virtual void addRecord (TT_Dao m) override
+    virtual void addRecord (T& m); // ТУТ ХЗ ПОКА // virtual void addRecord (TT_Dao m) override
     virtual void exec(QString w) override;
     QSqlTableModel* getMTableModel(){return mTableModel;}
 protected:
+
     QTableView* mTableview;
     QString mTableName;
     virtual void addRecord() override;
@@ -31,6 +32,7 @@ DBFacade<T>::DBFacade(QTableView* tableview, QString db_path, QString table_name
     mTableName = table_name;
     intiDB(db_path);
     initQuery();
+    qDebug() << "Tables::" <<mDB.tables();
     if (false == mDB.tables().contains(mTableName))
     {
         //            exec("CREATE TABLE seats ("  // таблица посадочных мест
@@ -72,6 +74,7 @@ void DBFacade<T>::initTableModelAndView(QTableView* tableview, uint8_t edit_stra
     mTableModel->setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(edit_strategy));
     mTableview = tableview;
     mTableview->setModel(mTableModel);
+    //mTableModel->removeColumn(0);
 }
 
 
@@ -91,9 +94,23 @@ DBFacade<T>::~DBFacade()
 }
 
 template<typename T>
-void DBFacade<T>::addRecord(T m)
+void DBFacade<T>::addRecord(T& m)
 {
-
+    mRec.clear();
+    mRec = mTableModel->record();
+    mRec.setValue(1, m.getDepartue());
+    mRec.setValue(2, m.getArrival());
+    mRec.setValue(3, m.getDate_dep());
+    mRec.setValue(4, m.getTime_dep());
+    mRec.setValue(5, m.getTravel_time());
+    mRec.setValue(6, m.getSeat_amount());
+    mRec.setValue(7, m.getSeat_free());
+    if (mTableModel->insertRecord(-1, mRec)) {
+            qDebug() << "New record inserted";
+        }
+    else {
+        qDebug()<< "Failed to insert new record";
+    }
 }
 
 template<typename T>

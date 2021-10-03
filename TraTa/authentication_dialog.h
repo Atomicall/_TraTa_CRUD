@@ -29,8 +29,6 @@ protected:
     DBFacade<Auth_dao>* authDB;
     Auth_dao mAuthInfo;
     Da_window* mainwindow = nullptr;
-
-
     bool check();
 
 private slots:

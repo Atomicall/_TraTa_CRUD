@@ -28,8 +28,9 @@ public:
 
     const QString &getSeat_free() const;
     void setSeat_free(const QString &newSeat_free);
-
+    bool checkIsReady();
 protected:
+
     QString departue;
     QString arrival;
     QString date_dep;
