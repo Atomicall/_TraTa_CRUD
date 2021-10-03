@@ -15,7 +15,7 @@
 #include <QtWidgets/QWidget>
 #include <QThread>
 #include "tt_dao.h"
-#include "dbfacade.h"
+#include "TableView_dbFacade.h"
 #include "add_form.h"
 
 
@@ -37,7 +37,7 @@ void _connect();
 void activateButtons();
 
 private:
-    DBFacade<TT_Dao>* ttDb = nullptr;
+    TableView_dbFacade<TT_Dao>* ttDb = nullptr;
     bool isAdmin=0;
 
     void addRecord(TT_Dao& w);

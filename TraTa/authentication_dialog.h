@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include "auth_dao.h"
-#include "dbfacade.h"
+#include "auth_dbfacade.h"
 #include "da_window.h"
 
 namespace Ui {
@@ -26,7 +26,7 @@ public:
 private:
     Ui::Authentication_dialog *ui;
 protected:
-    DBFacade<Auth_dao>* authDB;
+    Auth_dbFacade* authDB;
     Auth_dao mAuthInfo;
     Da_window* mainwindow = nullptr;
     bool check();

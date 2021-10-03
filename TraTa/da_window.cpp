@@ -7,7 +7,7 @@ Da_window::Da_window(QWidget *parent) : QMainWindow(0), ui(new Ui::Da_window)
     //retranslateUi(this);
     ui->setupUi(this);
 
-    ttDb = new DBFacade<TT_Dao> (this->ui->DB_Table, "D:\\timetable.db", "Timetable", Ui::EditStrategy::OnManualSubmit, this);
+    ttDb = new TableView_dbFacade<TT_Dao> (this->ui->DB_Table, "D:\\timetable.db", "Timetable", Ui::EditStrategy::OnManualSubmit, this);
     ui->DB_Table->hideColumn(0);
     _connect();
 

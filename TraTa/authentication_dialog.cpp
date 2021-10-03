@@ -6,6 +6,7 @@ Authentication_dialog::Authentication_dialog(QWidget *parent) :
     ui(new Ui::Authentication_dialog)
 {
     ui->setupUi(this);
+    authDB = new Auth_dbFacade("D:\\timetable.db", "Auth");
 }
 
 Authentication_dialog::~Authentication_dialog()
@@ -16,8 +17,12 @@ Authentication_dialog::~Authentication_dialog()
 
 bool Authentication_dialog::check()
 {
-    if (ui->login_LineEdit->text() == "1" && ui->pass_LineEdit->text() =="1") return 1;
-    return 0;
+    Auth_dao tmp;
+    tmp.setLogin(ui->login_LineEdit->text());
+    tmp.setPassword(ui->pass_LineEdit->text());
+    authDB->check(tmp);
+    //return 1;
+
 }
 
 void Authentication_dialog::on_DialogButtonBox_accepted()

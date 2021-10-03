@@ -12,22 +12,18 @@ public:
     DBFacade_int(QObject* parent = nullptr);
     virtual ~DBFacade_int();
 protected:
-    virtual void exec(QString w) = 0;
+    virtual void exec(QString w);
     QString qs(QString w);
     virtual void addRecord() = 0;
+
+    virtual void intiDB(QString db_path);
+    virtual void initQuery();
 
     QSqlDatabase mDB;
     QSqlQuery* mQuery = nullptr;
     QSqlRecord mRec;
     QSqlTableModel* mTableModel;
-
 };
-
-
-
-
-
-
 
 
 
