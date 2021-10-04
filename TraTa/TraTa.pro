@@ -18,6 +18,7 @@ SOURCES += \
     dbfacade_int.cpp \
     main.cpp \
     da_window.cpp \
+    show_on_form.cpp \
     tt_dao.cpp
 
 HEADERS += \
@@ -28,12 +29,14 @@ HEADERS += \
     authentication_dialog.h \
     da_window.h \
     dbfacade_int.h \
+    show_on_form.h \
     tt_dao.h
 
 FORMS += \
     add_form.ui \
     authentication_dialog.ui \
-    da_window.ui
+    da_window.ui \
+    show_on_form.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

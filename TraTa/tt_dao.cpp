@@ -1,9 +1,7 @@
 #include "tt_dao.h"
 
-TT_Dao::TT_Dao() // Timetable dao
+TT_Dao::TT_Dao()
 {
-
-
 }
 
 const QString &TT_Dao::getDepartue() const
@@ -87,4 +85,14 @@ bool TT_Dao::checkIsReady()
             || seat_free.isEmpty()) return 0;
     else return 1;
 
+}
+
+const QString &TT_Dao::getCost() const
+{
+    return cost;
+}
+
+void TT_Dao::setCost(const QString &newCost)
+{
+    cost = newCost;
 }

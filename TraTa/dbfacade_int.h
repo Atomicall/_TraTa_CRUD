@@ -15,7 +15,6 @@ protected:
     virtual void exec(QString w);
     QString qs(QString w);
     virtual void addRecord() = 0;
-
     virtual void intiDB(QString db_path);
     virtual void initQuery();
 

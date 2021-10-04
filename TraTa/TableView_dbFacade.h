@@ -13,9 +13,10 @@ public:
     void initTableModelAndView(QTableView* tableview, uint8_t edit_strategy);
     virtual ~TableView_dbFacade();
     virtual void addRecord (T& m);  // virtual void addRecord (TT_Dao m) override
+    QSqlQuery execAndGetQuery(QString& w);
     QSqlTableModel* getMTableModel(){return mTableModel;}
+    QString get_mTableName (){return mTableName;};
 protected:
-
     QTableView* mTableview;
     QString mTableName;
     virtual void addRecord() override;
@@ -24,7 +25,6 @@ protected:
 template<typename T>
 TableView_dbFacade<T>::TableView_dbFacade(QTableView* tableview, QString db_path, QString table_name, uint8_t edit_strategy, QObject* parent)
 {
-    qDebug()<<"DBFacade child";
     //this->parent()->setParent(parent);
     mTableName = table_name;
     intiDB(db_path);
@@ -37,18 +37,24 @@ TableView_dbFacade<T>::TableView_dbFacade(QTableView* tableview, QString db_path
     }
     initTableModelAndView(tableview, edit_strategy);
 }
-
-
-
 template<typename T>
 void TableView_dbFacade<T>::initTableModelAndView(QTableView* tableview, uint8_t edit_strategy)
 {
     mTableModel = new QSqlTableModel (this, mDB);
     mTableModel->setTable(mTableName);
     mTableModel->select();
+    mTableModel->setHeaderData(1, Qt::Horizontal, tr("Departue Place"));
+    mTableModel->setHeaderData(2, Qt::Horizontal, tr("Arrival Place"));
+    mTableModel->setHeaderData(3, Qt::Horizontal, tr("Departue Date"));
+    mTableModel->setHeaderData(4, Qt::Horizontal, tr("Departue Time"));
+    mTableModel->setHeaderData(5, Qt::Horizontal, tr("Trip Time"));
+    mTableModel->setHeaderData(6, Qt::Horizontal, tr("Seats Amount"));
+    mTableModel->setHeaderData(7, Qt::Horizontal, tr("Seats Free"));
+    mTableModel->setHeaderData(8, Qt::Horizontal, tr("Cost"));
     mTableModel->setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(edit_strategy));
     mTableview = tableview;
     mTableview->setModel(mTableModel);
+
     //mTableModel->removeColumn(0);
 }
 
@@ -56,8 +62,6 @@ void TableView_dbFacade<T>::initTableModelAndView(QTableView* tableview, uint8_t
 template<typename T>
 TableView_dbFacade<T>::~TableView_dbFacade()
 {
-    qDebug()<<"child destru";
-
 }
 
 template<typename T>
@@ -72,8 +76,8 @@ void TableView_dbFacade<T>::addRecord(T& m)
     mRec.setValue(5, m.getTravel_time());
     mRec.setValue(6, m.getSeat_amount());
     mRec.setValue(7, m.getSeat_free());
+    mRec.setValue(8, m.getCost());
     if (mTableModel->insertRecord(-1, mRec)) {
-            qDebug() << "New record inserted";
         }
     else {
         qDebug()<< "Failed to insert new record";
@@ -81,9 +85,19 @@ void TableView_dbFacade<T>::addRecord(T& m)
 }
 
 template<typename T>
-void TableView_dbFacade<T>::addRecord()
+void TableView_dbFacade<T>::addRecord(){}
+template<typename T>
+QSqlQuery TableView_dbFacade<T>::execAndGetQuery(QString& w)
 {
-
+    mQuery->clear();
+    mRec.clear();
+    if (false == mQuery->exec(w))
+      qDebug() << "Unable to execute query - exiting" << mQuery->lastError() << " : " << mQuery->lastQuery();
+    if (!mQuery->isActive()){
+        qDebug() << "Query is inactive after executing";
+    }
+    mQuery->next();
+    return *mQuery;
 }
 
 #endif // TABLEVIEW_DBFACADE_H

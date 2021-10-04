@@ -17,6 +17,7 @@
 #include "tt_dao.h"
 #include "TableView_dbFacade.h"
 #include "add_form.h"
+#include "show_on_form.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -27,28 +28,31 @@ class Da_window : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit Da_window(QWidget *parent = nullptr);
+    explicit Da_window(QWidget *parent = nullptr, bool isAdmin=0);
     ~Da_window();
 private:
     Ui::Da_window* ui;
 
 
 void _connect();
-void activateButtons();
+void dectivateEdit();
 
 private:
     TableView_dbFacade<TT_Dao>* ttDb = nullptr;
-    bool isAdmin=0;
-
+    bool mIsAdmin;
     void addRecord(TT_Dao& w);
-
-
+    void Sort_By_ComboBox_fill();
+    void set_Current_Status(QString w);
+    void set_DB_Status(QString w);
 private slots:
-     void on_Submit_All_clicked();
+    void on_Submit_All_clicked();
     void on_Revert_Button_clicked();
     void on_Add_Button_clicked();
     void on_Delete_Button_clicked();
     void recieve_tt_dao(TT_Dao arg1);
+    void on_Sort_By_ComboBox_currentIndexChanged(int index);
+    void on_Show_On_clicked();
+    void clr_combobox(int i);
 };
 #endif // DA_WINDOW_H
 

@@ -6,6 +6,7 @@ Add_Form::Add_Form(QWidget *parent) :
     ui(new Ui::Add_Form)
 {
     ui->setupUi(this);
+     this->setWindowTitle("Add new record");
     connect(ui->Save_Button, SIGNAL(clicked), this, SLOT(on_Save_Button_clicked));
     connect(ui->Discard_Button, SIGNAL(clicked), this, SLOT(on_Discard_Button_clicked));
 }
@@ -63,7 +64,6 @@ void Add_Form::on_Dep_Time_LineEdit_timeChanged(const QTime &time)
 void Add_Form::on_Save_Button_clicked()
 {
     if (tt_storage.checkIsReady()) {
-        qDebug()<<"TT READY";
         emit tt_dao_ready(tt_storage);
         on_Discard_Button_clicked();
     };
@@ -73,5 +73,11 @@ void Add_Form::on_Save_Button_clicked()
 void Add_Form::on_Discard_Button_clicked()
 {
     this->close();
+}
+
+
+void Add_Form::on_Cost_LineEdit_textChanged(const QString &arg1)
+{
+    tt_storage.setCost(arg1);
 }
 

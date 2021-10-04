@@ -28,11 +28,9 @@ private slots:
     void on_Seat_Free_Lineedit_textChanged(const QString &arg1);
     void on_Dep_Date_dateEdit_dateChanged(const QDate &date);
     void on_Dep_Time_LineEdit_timeChanged(const QTime &time);
+    void on_Cost_LineEdit_textChanged(const QString &arg1);
     void on_Discard_Button_clicked();
     void on_Save_Button_clicked();
-
-
-
 private:
     Ui::Add_Form *ui;
     TT_Dao tt_storage;

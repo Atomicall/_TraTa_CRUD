@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>341</width>
-    <height>240</height>
+    <height>247</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>10</x>
      <y>10</y>
      <width>316</width>
-     <height>191</height>
+     <height>208</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -84,20 +84,37 @@
           <hour>23</hour>
           <minute>59</minute>
           <second>59</second>
-          <year>2030</year>
+          <year>2100</year>
           <month>12</month>
           <day>31</day>
          </datetime>
         </property>
         <property name="minimumDateTime">
          <datetime>
-          <hour>0</hour>
-          <minute>0</minute>
-          <second>0</second>
+          <hour>23</hour>
+          <minute>59</minute>
+          <second>59</second>
           <year>2021</year>
-          <month>9</month>
+          <month>1</month>
           <day>1</day>
          </datetime>
+        </property>
+        <property name="maximumDate">
+         <date>
+          <year>2100</year>
+          <month>12</month>
+          <day>31</day>
+         </date>
+        </property>
+        <property name="minimumDate">
+         <date>
+          <year>2021</year>
+          <month>1</month>
+          <day>1</day>
+         </date>
+        </property>
+        <property name="currentSection">
+         <enum>QDateTimeEdit::DaySection</enum>
         </property>
         <property name="calendarPopup">
          <bool>false</bool>
@@ -143,6 +160,13 @@
           <day>8</day>
          </datetime>
         </property>
+        <property name="minimumTime">
+         <time>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+         </time>
+        </property>
        </widget>
       </item>
      </layout>
@@ -177,13 +201,23 @@
     <item row="6" column="1">
      <widget class="QLineEdit" name="Seat_Free_Lineedit"/>
     </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="Cost_Label">
+      <property name="text">
+       <string>Cost</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="Cost_LineEdit"/>
+    </item>
    </layout>
   </widget>
   <widget class="QPushButton" name="Save_Button">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>210</y>
+     <x>170</x>
+     <y>220</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -196,7 +230,7 @@
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>210</y>
+     <y>220</y>
      <width>75</width>
      <height>23</height>
     </rect>
