@@ -2,7 +2,7 @@
 #define AUTH_DBFACADE_H
 
 #include "dbfacade_int.h"
-#include "auth_dao.h"
+#include "auth_dto.h"
 enum DB_RESULT{
     NOTADMIN = 0,
     ADMIN,

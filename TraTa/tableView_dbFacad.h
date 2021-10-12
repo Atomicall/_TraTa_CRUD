@@ -1,5 +1,5 @@
-#ifndef TABLEVIEW_DBFACADE_H
-#define TABLEVIEW_DBFACADE_H
+#ifndef TABLEVIEW_DBFACAD_H
+#define TABLEVIEW_DBFACAD_H
 
 #include "dbfacade_int.h"
 
@@ -100,4 +100,4 @@ QSqlQuery TableView_dbFacade<T>::execAndGetQuery(QString& w)
     return *mQuery;
 }
 
-#endif // TABLEVIEW_DBFACADE_H
+#endif // TABLEVIEW_DBFACAD_H

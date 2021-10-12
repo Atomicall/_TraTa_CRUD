@@ -10,27 +10,27 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    TableView_dbFacade.cpp \
     add_form.cpp \
-    auth_dao.cpp \
     auth_dbfacade.cpp \
+    auth_dto.cpp \
     authentication_dialog.cpp \
     dbfacade_int.cpp \
     main.cpp \
     da_window.cpp \
     show_on_form.cpp \
-    tt_dao.cpp
+    tableView_dbFacad.cpp \
+    tt_dto.cpp
 
 HEADERS += \
-    TableView_dbFacade.h \
     add_form.h \
-    auth_dao.h \
     auth_dbfacade.h \
+    auth_dto.h \
     authentication_dialog.h \
     da_window.h \
     dbfacade_int.h \
     show_on_form.h \
-    tt_dao.h
+    tableView_dbFacad.h \
+    tt_dto.h
 
 FORMS += \
     add_form.ui \

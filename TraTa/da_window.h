@@ -14,8 +14,8 @@
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QWidget>
 #include <QThread>
-#include "tt_dao.h"
-#include "TableView_dbFacade.h"
+#include "tt_dto.h"
+#include "tableView_dbFacad.h"
 #include "add_form.h"
 #include "show_on_form.h"
 

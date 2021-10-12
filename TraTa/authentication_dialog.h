@@ -2,7 +2,7 @@
 #define AUTHENTICATION_DIALOG_H
 
 #include <QDialog>
-#include "auth_dao.h"
+#include "auth_dto.h"
 #include "auth_dbfacade.h"
 #include "da_window.h"
 

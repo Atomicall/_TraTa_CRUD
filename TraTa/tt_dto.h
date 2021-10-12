@@ -1,5 +1,5 @@
-#ifndef TT_DAO_H
-#define TT_DAO_H
+#ifndef TT_DTO_H
+#define TT_DTO_H
 #include <QString>
 
 
@@ -36,4 +36,4 @@ protected:
     QString cost;
 };
 
-#endif // TT_DAO_H
+#endif // TT_DTO_H

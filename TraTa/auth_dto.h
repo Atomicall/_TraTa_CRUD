@@ -1,5 +1,5 @@
-#ifndef AUTH_DAO_H
-#define AUTH_DAO_H
+#ifndef AUTH_DTO_H
+#define AUTH_DTO_H
 #include <QString>
 
 class Auth_dao
@@ -15,4 +15,4 @@ QString login;
 QString password;
 };
 
-#endif // AUTH_DAO_H
+#endif // AUTH_DTO_H

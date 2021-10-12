@@ -2,8 +2,8 @@
 #define SHOW_ON_FORM_H
 
 #include <QWidget>
-#include "TableView_dbFacade.h"
-#include "tt_dao.h"
+#include "tableView_dbFacad.h"
+#include "tt_dto.h"
 
 namespace Ui {
 class Show_On_form;

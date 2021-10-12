@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QAbstractButton>
-#include "tt_dao.h"
+#include "tt_dto.h"
 
 namespace Ui {
 class Add_Form;
