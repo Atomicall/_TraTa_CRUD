@@ -1,7 +1,11 @@
 public class AlgebraicFormStorage {
-    public static float real = 0;
-    public static float im = 0;
-    AlgebraicFormStorage (float mod, float phase){
-
-    }
+    public float real = 0;
+    public float im = 0;
+    public void fromExp (float mod, float phase){};
+    public AlgebraicFormStorage (float re, float im){
+        this.real = re;
+        this.im = im;
+    };
+    public AlgebraicFormStorage (){
+    };
 }

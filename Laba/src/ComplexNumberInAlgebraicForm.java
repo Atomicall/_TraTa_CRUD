@@ -3,27 +3,46 @@ public class ComplexNumberInAlgebraicForm extends AbstractComplexNumber {
     public static float im = 0;
 
     @Override
-    void Add(AlgebraicFormStorage n) {
-        super.Add(n);
+    AlgebraicFormStorage Add(AlgebraicFormStorage n) {
+        AlgebraicFormStorage result = new AlgebraicFormStorage();
+        result.real = this.real + n.real;
+        result.im = this.im + n.im;
+        return result;
     }
 
     @Override
-    void Sub(AlgebraicFormStorage n) {
-        super.Sub(n);
+    AlgebraicFormStorage Sub(AlgebraicFormStorage n) {
+        AlgebraicFormStorage result = new AlgebraicFormStorage();
+        result.real = this.real - n.real;
+        result.im = this.im - n.im;
+        return result;
     }
 
     @Override
-    void Mul(AlgebraicFormStorage n) {
-        super.Mul(n);
+    AlgebraicFormStorage Mul(AlgebraicFormStorage n) {
+        AlgebraicFormStorage result = new AlgebraicFormStorage();
+        result.real = this.real * n.real - this.im * n.im;
+        result.im = this.real * n.real + this.im * n.im;
+        return result;
     }
 
     @Override
-    void Div(AlgebraicFormStorage n) {
-        super.Div(n);
+    AlgebraicFormStorage Div(AlgebraicFormStorage n) {
+        AlgebraicFormStorage result = new AlgebraicFormStorage(n.real, n.im);
+        this.im = (-1)*this.im;
+        result = this.Mul(result);
+
+        /*ComplexNumber temp = new ComplexNumber(cn2.getRe(), (-1)* cn2.getIm());
+        temp = ComplexNumber.multiply(cn1, temp);
+        double denominator = cn2.getRe()*cn2.getRe() + cn2.getIm() * cn2.getIm();
+        return new ComplexNumber(temp.getRe()/denominator, temp.getIm()/denominator);*/
+    return null;
     }
 
     ExponentialFormStorage getInComplexForm() {
-        return new ExponentialFormStorage(real, im);
+        ExponentialFormStorage result = new ExponentialFormStorage();
+        result.fromAlg(real, im);
+        return result;
     }
 
 

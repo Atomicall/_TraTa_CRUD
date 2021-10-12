@@ -1,19 +1,19 @@
 import com.ru.org.net._Number;
 
 public class AbstractComplexNumber extends _Number {
-    void Add(AlgebraicFormStorage n) {
+    AlgebraicFormStorage Add(AlgebraicFormStorage n) {
     }
     void Add(ExponentialFormStorage n) {
     }
-    void Sub(AlgebraicFormStorage n) {
+    AlgebraicFormStorage Sub(AlgebraicFormStorage n) {
     }
     void Sub(ExponentialFormStorage n) {
     }
-    void Mul(AlgebraicFormStorage n) {
+    AlgebraicFormStorage Mul(AlgebraicFormStorage n) {
     }
     void Mul(ExponentialFormStorage n) {
     }
-    void Div(AlgebraicFormStorage n) {
+    AlgebraicFormStorage Div(AlgebraicFormStorage n) {
     }
     void Div(ExponentialFormStorage n) {
     }
